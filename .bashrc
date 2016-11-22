@@ -14,11 +14,10 @@ alias ops-unset='for i in `set|grep --color=never ^OS_|sed 's/=.*//'`; do unset 
 alias ops='openstack'
 
 alias pyserver='python -m SimpleHTTPServer'
-alias tmx='tmux attach || tmux new -A -s main'
+alias tmx='if [ $(tmux ls|wc -l) > 0 ]; then tmux new -A -s main; else tmux attach;fi'
 alias vimp='vimpager'
 
-alias ping='ping -c4'
-alias examples='python3 ~/examples/cmd.py'
+alias examples='python ~/examples/examples.py'
 alias halt='sudo shutdown -P now'
 alias reboot='sudo reboot'
 alias update='pacman -Syu'
@@ -66,3 +65,4 @@ alias ports='grc netstat -auntl'
 alias df='grc df'
 alias ps='grc ps'
 alias lsblk='grc lsblk'
+alias ping='grc ping'
